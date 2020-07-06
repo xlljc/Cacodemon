@@ -30,6 +30,7 @@
 	//isLd = place_meeting(x,y + 3,ob_floor_collision);
 	deBugStr += "\nisld =" + string(isLd);
 	
+	//debug每次移动一格
 	if(keyboard_check_pressed(ord("N"))){
 		po = -1;
 	}
@@ -437,7 +438,7 @@ draw_self();
 	}else if(keyboard_check_pressed(vk_numpad5)){
 		presentHp += 30;
 	}
-	draw_line(0,0,x,y);
+	//draw_line(0,0,x,y);
 	//draw_text(x,y,"speed_y = " + string(phy_speed_y));
 	//deBugStr += "\nanimationName =" + string(animationName);
 	//deBugStr += "\nanimationIndex =" + string(animationIndex);

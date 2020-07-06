@@ -6,7 +6,7 @@ str += "AD移动 , W跳跃 , S防御 , J攻击 , K翻滚";
 str += "\nQ切换武器 , E拾起武器 , G扔下武器 , H抛出武器(会造成伤害)";
 str += "\n按5回血 , 虽然玩家不会死亡2333";
 str += "\n按P重启游戏"
-//show_message(str);
+show_message(str);
 
 
 #region 相机变量

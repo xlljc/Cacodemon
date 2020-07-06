@@ -1,0 +1,104 @@
+
+player_bow.png
+size: 128,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arm
+  rotate: false
+  xy: 89, 88
+  size: 9, 18
+  orig: 9, 18
+  offset: 0, 0
+  index: -1
+hand
+  rotate: false
+  xy: 121, 1
+  size: 6, 15
+  orig: 6, 15
+  offset: 0, 0
+  index: -1
+leg_l
+  rotate: false
+  xy: 121, 18
+  size: 6, 12
+  orig: 6, 12
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 89, 48
+  size: 15, 27
+  orig: 15, 27
+  offset: 0, 0
+  index: -1
+foot_l
+  rotate: false
+  xy: 89, 108
+  size: 9, 12
+  orig: 9, 12
+  offset: 0, 0
+  index: -1
+leg_r
+  rotate: false
+  xy: 121, 32
+  size: 6, 12
+  orig: 6, 12
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 106, 48
+  size: 15, 18
+  orig: 15, 18
+  offset: 0, 0
+  index: -1
+foot_r
+  rotate: false
+  xy: 100, 88
+  size: 9, 12
+  orig: 9, 12
+  offset: 0, 0
+  index: -1
+bow
+  rotate: false
+  xy: 89, 1
+  size: 30, 45
+  orig: 30, 45
+  offset: 0, 0
+  index: -1
+arrow
+  rotate: false
+  xy: 89, 77
+  size: 30, 9
+  orig: 30, 9
+  offset: 0, 0
+  index: -1
+atk_lightt4
+  rotate: false
+  xy: 1, 60
+  size: 42, 57
+  orig: 42, 57
+  offset: 0, 0
+  index: -1
+atk_lightt3
+  rotate: false
+  xy: 45, 1
+  size: 42, 57
+  orig: 42, 57
+  offset: 0, 0
+  index: -1
+atk_lightt1
+  rotate: false
+  xy: 45, 60
+  size: 42, 57
+  orig: 42, 57
+  offset: 0, 0
+  index: -1
+atk_lightt2
+  rotate: false
+  xy: 1, 1
+  size: 42, 57
+  orig: 42, 57
+  offset: 0, 0
+  index: -1

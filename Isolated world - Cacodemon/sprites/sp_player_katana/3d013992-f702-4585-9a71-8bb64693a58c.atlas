@@ -1,0 +1,118 @@
+
+player_katana.png
+size: 256,256
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arm
+  rotate: false
+  xy: 241, 1
+  size: 9, 18
+  orig: 9, 18
+  offset: 0, 0
+  index: -1
+hand
+  rotate: false
+  xy: 233, 1
+  size: 6, 15
+  orig: 6, 15
+  offset: 0, 0
+  index: -1
+leg_l
+  rotate: false
+  xy: 241, 49
+  size: 6, 12
+  orig: 6, 12
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 179, 60
+  size: 15, 27
+  orig: 15, 27
+  offset: 0, 0
+  index: -1
+foot_l
+  rotate: false
+  xy: 241, 35
+  size: 9, 12
+  orig: 9, 12
+  offset: 0, 0
+  index: -1
+leg_r
+  rotate: false
+  xy: 249, 49
+  size: 6, 12
+  orig: 6, 12
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 196, 60
+  size: 15, 18
+  orig: 15, 18
+  offset: 0, 0
+  index: -1
+foot_r
+  rotate: false
+  xy: 241, 21
+  size: 9, 12
+  orig: 9, 12
+  offset: 0, 0
+  index: -1
+katana
+  rotate: false
+  xy: 179, 1
+  size: 52, 15
+  orig: 52, 15
+  offset: 0, 0
+  index: -1
+light4
+  rotate: false
+  xy: 1, 167
+  size: 87, 81
+  orig: 87, 81
+  offset: 0, 0
+  index: -1
+ligh2_1
+  rotate: false
+  xy: 179, 18
+  size: 60, 12
+  orig: 60, 12
+  offset: 0, 0
+  index: -1
+ligh2_2
+  rotate: false
+  xy: 179, 32
+  size: 60, 12
+  orig: 60, 12
+  offset: 0, 0
+  index: -1
+light1
+  rotate: false
+  xy: 1, 84
+  size: 87, 81
+  orig: 87, 81
+  offset: 0, 0
+  index: -1
+light3
+  rotate: false
+  xy: 90, 1
+  size: 87, 81
+  orig: 87, 81
+  offset: 0, 0
+  index: -1
+ligh2_3
+  rotate: false
+  xy: 179, 46
+  size: 60, 12
+  orig: 60, 12
+  offset: 0, 0
+  index: -1
+light2
+  rotate: false
+  xy: 1, 1
+  size: 87, 81
+  orig: 87, 81
+  offset: 0, 0
+  index: -1

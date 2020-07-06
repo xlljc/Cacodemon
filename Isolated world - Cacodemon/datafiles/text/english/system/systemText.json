@@ -1,0 +1,11 @@
+{
+    "menu": {},
+    "ui": {},
+    "help": {},
+    "remind": {
+        "onGame": {
+            "pickUpWeapon": "pick up:",
+            "replaceWeapon": "replace:"
+        }
+    }
+}

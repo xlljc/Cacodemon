@@ -1,0 +1,62 @@
+
+player_none.png
+size: 64,64
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+arm
+  rotate: false
+  xy: 18, 1
+  size: 9, 18
+  orig: 9, 18
+  offset: 0, 0
+  index: -1
+hand
+  rotate: false
+  xy: 18, 21
+  size: 6, 15
+  orig: 6, 15
+  offset: 0, 0
+  index: -1
+leg_l
+  rotate: false
+  xy: 23, 38
+  size: 6, 12
+  orig: 6, 12
+  offset: 0, 0
+  index: -1
+body
+  rotate: false
+  xy: 1, 1
+  size: 15, 27
+  orig: 15, 27
+  offset: 0, 0
+  index: -1
+foot_l
+  rotate: false
+  xy: 1, 50
+  size: 9, 12
+  orig: 9, 12
+  offset: 0, 0
+  index: -1
+leg_r
+  rotate: false
+  xy: 26, 21
+  size: 6, 12
+  orig: 6, 12
+  offset: 0, 0
+  index: -1
+head
+  rotate: false
+  xy: 1, 30
+  size: 15, 18
+  orig: 15, 18
+  offset: 0, 0
+  index: -1
+foot_r
+  rotate: false
+  xy: 12, 50
+  size: 9, 12
+  orig: 9, 12
+  offset: 0, 0
+  index: -1

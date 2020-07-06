@@ -1,0 +1,11 @@
+{
+    "menu": {},
+    "ui": {},
+    "help": {},
+    "remind": {
+        "onGame": {
+            "pickUpWeapon": "拾起：",
+            "replaceWeapon": "替换："
+        }
+    }
+}

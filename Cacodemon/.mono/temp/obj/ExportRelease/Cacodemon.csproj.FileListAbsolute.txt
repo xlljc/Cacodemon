@@ -1,0 +1,6 @@
+H:\MyGameProject\Cacodemon\GameProject\Cacodemon\.mono\temp\bin\ExportRelease\Cacodemon.dll
+H:\MyGameProject\Cacodemon\GameProject\Cacodemon\.mono\temp\bin\ExportRelease\Cacodemon.pdb
+H:\MyGameProject\Cacodemon\GameProject\Cacodemon\.mono\temp\obj\ExportRelease\Cacodemon.csprojAssemblyReference.cache
+H:\MyGameProject\Cacodemon\GameProject\Cacodemon\.mono\temp\obj\ExportRelease\Cacodemon.csproj.CoreCompileInputs.cache
+H:\MyGameProject\Cacodemon\GameProject\Cacodemon\.mono\temp\obj\ExportRelease\Cacodemon.dll
+H:\MyGameProject\Cacodemon\GameProject\Cacodemon\.mono\temp\obj\ExportRelease\Cacodemon.pdb

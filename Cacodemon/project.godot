@@ -16,6 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Cacodemon"
+run/main_scene="res://Scenes/Test/Test01Map.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -76,15 +77,14 @@ ui_down={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":13,"pressure":0.0,"pressed":false,"script":null)
  ]
 }
-ui_attack={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":74,"unicode":0,"echo":false,"script":null)
- ]
-}
 
-[mono]
+[layer_names]
 
-debugger_agent/wait_for_debugger=true
+2d_render/layer_1="wall"
+2d_physics/layer_1="wall"
+2d_physics/layer_2="role1"
+2d_physics/layer_3="role2"
+2d_physics/layer_4="role3"
 
 [rendering]
 

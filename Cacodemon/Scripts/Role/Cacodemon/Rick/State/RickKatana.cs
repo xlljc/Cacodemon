@@ -99,9 +99,9 @@ public class RickKatana : Rick
 		return oldState;
 	}
 
-	protected override string RickPlayAnimation(Sta state)
+	protected override string RickPlayAnimation(Sta oldState, Sta newState)
 	{
-		switch (state)
+		switch (newState)
 		{
 			case Sta.Idle:
 				return "Idle2";

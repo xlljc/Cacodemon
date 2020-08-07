@@ -15,12 +15,18 @@ public abstract class Rick : RoleBase
 	/// 动画播放器
 	public AnimationPlayer AnimationPlayer { get; set; }
 	
-	//光照节点
+	/// 光照节点
 	public Light2D Light { get; set; }
+	
+	/// 爬墙检测节点
+	public Area2D ClimbArea { get; set; }
 
 	//***************内置变量
 	/// 动画是否结束过
 	protected bool AnimFinished { get; set; } = false;
+
+	/// 是满足否可以爬墙的条件
+	protected bool CanClimb { get; set; } = false;
 
 	/// 是否启用旋转缩放,如果禁用,调用FaceTo()方法将不会产生效果
 	protected bool EnableScale = true;
@@ -58,9 +64,10 @@ public abstract class Rick : RoleBase
 	/// <summary>
 	/// 根据状态播放动画
 	/// </summary>
-	/// <param name="state">状态</param>
+	/// <param name="oldState">原来的状态</param>
+	/// <param name="newState">新的状态</param>
 	/// <returns>返回动画名称的字符串,如果返回为null,则不播放任何动画</returns>
-	protected abstract string RickPlayAnimation(Sta state);
+	protected abstract string RickPlayAnimation(Sta oldState, Sta newState);
 
 	
 	//*************************************************
@@ -72,6 +79,7 @@ public abstract class Rick : RoleBase
 		AnimationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		Light = GetNode<Light2D>("Scale/Light2D");
 		Light.Enabled = true;
+		ClimbArea = GetNode<Area2D>("Scale/Area/Climb");
 		//连接信号
 		AnimationPlayer.Connect("animation_finished", this, nameof(AnimationPlayerFinished));
 		//更新键位状态
@@ -88,15 +96,15 @@ public abstract class Rick : RoleBase
 		return RickListeningState(oldState);
 	}
 
-	public override void ChangeState(Sta state)
+	public override void ChangeState(Sta oldState, Sta newState)
 	{
-		State = state;
+		State = newState;
 		//设置动画状态为未播放完成
 		AnimFinished = false;
 		//设置不可强制改变状态
 		CanChangeState = false;
 		//监视动画
-		string animationName = RickPlayAnimation(state);
+		string animationName = RickPlayAnimation(oldState,newState);
 		if (animationName != null)
 		{
 			AnimationPlayer.Play(animationName);
@@ -152,4 +160,43 @@ public abstract class Rick : RoleBase
 		AnimFinished = true;
 	}
 
+	/// <summary>
+	/// 设置是否达成爬墙的条件,由Scale/Area/Climb节点调用
+	/// </summary>
+	/// <param name="body">接触的爬墙节点</param>
+	/// <param name="flag">bool值</param>
+	protected void SetCanClimb(RigidBody2D body, bool flag)
+	{
+		if (flag && State == Sta.JumpFall)
+		{
+			//只有在body含有碰撞形状时才能执行下面的代码
+			CollisionShape2D shape2D = body.GetChildOrNull<CollisionShape2D>(0);
+			if (shape2D != null && shape2D.Shape is RectangleShape2D bodyRectangle)
+			{
+				//设置可以抓取墙角
+				CanClimb = true;
+				//关闭下落
+				EnableGravity = false;
+				//计算坐标点,使角色紧贴墙壁
+				Vector2 climbAreaRectangle = ((RectangleShape2D) ClimbArea.GetChild<CollisionShape2D>(0).Shape).Extents;
+				GlobalPosition += shape2D.GlobalPosition - bodyRectangle.Extents - new Vector2(GlobalPosition.x + 3,
+					ClimbArea.GlobalPosition.y + climbAreaRectangle.y);
+			}
+		}
+		else
+		{
+			CanClimb = false;
+			EnableGravity = true;
+		}
+	}
+
+	
+	
+	/// <summary>
+	/// 爬墙过后调用该函数,重置位置
+	/// </summary>
+	protected void ClimbFinish()
+	{
+		Position += new Vector2(7 * ScaNode.Scale.x,-16);
+	}
 }

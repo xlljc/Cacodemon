@@ -44,7 +44,8 @@ namespace XiaoLi.Base
         /// 当前移动速率
         public Vector2 Velocity { get; set; } = Vector2.Zero;
 
-        
+        /// 是否启用物理下落
+        public bool EnableGravity { get; set; } = true;
         
         //****************************方法
 
@@ -76,8 +77,9 @@ namespace XiaoLi.Base
         /// 改变状态,并触发动画更新,调用事件
         /// 在ListeningState()方法改变过状态后,会自动调用该函数
         /// </summary>
-        /// <param name="state">目标状态</param>
-        public abstract void ChangeState(Sta state);
+        /// <param name="oldState">原来的状态</param>
+        /// <param name="newState">新的状态</param>
+        public abstract void ChangeState(Sta oldState, Sta newState);
 
         /// <summary>
         /// 角色的操作,状态的改变
@@ -87,18 +89,20 @@ namespace XiaoLi.Base
         public abstract Vector2 Operation(float delta);
 
         //***********************************
-        
-        
+
+
         /// <summary>
         /// 移动函数,该函数负责计算移动
         /// </summary>
         /// <param name="velocity">移动的方向</param>
         /// <param name="delta"></param>
-        public void Move(Vector2 velocity,float delta)
+        public void Move(Vector2 velocity, float delta)
         {
-            velocity.x = Mathf.MoveToward(Velocity.x,velocity.x * MoveSpeed,MoveAcceleration * delta);
-            velocity.y = velocity.y == -1f ? -JumpSpeed : Velocity.y + Gravity;
-            Velocity = MoveAndSlide(velocity,Vector2.Up);
+            //x轴方向移动
+            velocity.x = Mathf.MoveToward(Velocity.x, velocity.x * MoveSpeed, MoveAcceleration * delta);
+            //y轴方向移动(重力下落)
+            if (EnableGravity) velocity.y = velocity.y == -1f ? -JumpSpeed : Velocity.y + Gravity;
+            Velocity = MoveAndSlide(velocity, Vector2.Up);
         }
 
 
@@ -113,7 +117,7 @@ namespace XiaoLi.Base
             Sta newSta = ListeningState(oldSta);
             if(oldSta != newSta)
             {
-                ChangeState(newSta);
+                ChangeState(oldSta,newSta);
             }
             //用户操作
             Vector2 dir = Operation(delta);
@@ -127,7 +131,7 @@ namespace XiaoLi.Base
             //初始化部分属性
             Hp = Hp == -1 ? MaxHp : Hp;
             Ready();
-            ChangeState(State);
+            ChangeState(State,State);
         }
 
         public override void _Process(float delta)

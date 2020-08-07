@@ -28,7 +28,17 @@ public class RickDefault : Rick
         switch (oldState)
         {
             case Sta.Idle:
-                if (_dirX != 0) //如果静止
+                if (_dirX != 0) //如果移动
+                    oldState = MyInput.KeyPressed("shift") ? Sta.Run : Sta.Walk;
+                else if (_jmp) //如果按下跳跃
+                    oldState = Sta.JumpUp;
+                else if (Velocity.y > 0) //如果下落
+                    oldState = Sta.JumpFall;
+                break;
+            case Sta.Walk:
+                if (_dirX == 0) //如果静止
+                    oldState = Sta.Idle;
+                else if (MyInput.Key("shift") == 1)
                     oldState = Sta.Run;
                 else if (_jmp) //如果按下跳跃
                     oldState = Sta.JumpUp;
@@ -38,6 +48,8 @@ public class RickDefault : Rick
             case Sta.Run:
                 if (_dirX == 0) //如果静止
                     oldState = Sta.Idle;
+                else if (MyInput.Key("shift") == 0)
+                    oldState = Sta.Walk;
                 else if (_jmp) //如果按下跳跃
                     oldState = Sta.JumpUp;
                 else if (Velocity.y > 0) //如果下落
@@ -48,7 +60,9 @@ public class RickDefault : Rick
                     oldState = Sta.JumpFall;
                 break;
             case Sta.JumpFall:
-                if (IsOnFloor()) //如果落地
+                if (CanClimb) //如果下落可以抓到墙
+                    oldState = Sta.Climb;
+                else if (IsOnFloor()) //如果落地
                     if (_dirX != 0)
                         oldState = Sta.Run;
                     else
@@ -60,13 +74,17 @@ public class RickDefault : Rick
                 else if (_dirX != 0) //如果移动
                     oldState = Sta.Run;
                 break;
+            case Sta.Climb:
+                if (AnimFinished) //如果动画结束
+                    oldState = Sta.Idle;
+                break;
         }
         return oldState;
     }
 
-    protected override string RickPlayAnimation(Sta state)
+    protected override string RickPlayAnimation(Sta oldState, Sta newState)
     {
-        return state.ToString();
+        return newState.ToString();
     }
     
     public override Vector2 Operation(float delta)
@@ -77,7 +95,13 @@ public class RickDefault : Rick
             case Sta.Idle:
                 FaceTo(_dirX);
                 break;
+            case Sta.Walk:
+                MoveSpeed = 45;
+                velocity = Vector2.Right * _dirX;
+                FaceTo(_dirX);
+                break;
             case Sta.Run:
+                MoveSpeed = 120;
                 velocity = Vector2.Right * _dirX;
                 FaceTo(_dirX);
                 break;
@@ -94,7 +118,13 @@ public class RickDefault : Rick
             case Sta.Ground:
                 
                 break;
+            case Sta.Climb:
+
+                break;
         }
         return velocity;
     }
+
+
+    
 }

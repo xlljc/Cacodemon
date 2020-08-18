@@ -67,9 +67,11 @@
     <Compile Include="Scripts\Role\Cacodemon\Rick\Rick.cs" />
     <Compile Include="Scripts\Role\Cacodemon\Rick\State\RickDefault.cs" />
     <Compile Include="Scripts\Role\Cacodemon\Rick\State\RickKatana.cs" />
-    <Compile Include="Scripts\Test\Test01Map.cs" />
-    <Compile Include="Scripts\XiaoLi\Base\RoleBase.cs" />
-    <Compile Include="Scripts\XiaoLi\Base\RoomBase.cs" />
+    <Compile Include="Scripts\Test\TestMap.cs" />
+    <Compile Include="Scripts\XiaoLi\Base\Role\RoleBase.cs" />
+    <Compile Include="Scripts\XiaoLi\Base\Room\RoomBase.cs" />
+    <Compile Include="Scripts\XiaoLi\Base\Room\RoomDate.cs" />
+    <Compile Include="Scripts\XiaoLi\Utils\EachUtil.cs" />
     <Compile Include="Scripts\XiaoLi\Utils\Input\ButtonMapping.cs" />
     <Compile Include="Scripts\XiaoLi\Utils\Input\MyInput.cs" />
     <Compile Include="Scripts\XiaoLi\Utils\MyMath.cs" />

@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scenes/Role/Cacodemon/Rick/RickDefault.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Rooms/RoomBase/RoomBase.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/Test/TestMap.cs" type="Script" id=3]
+[ext_resource path="res://Image/Map/Page1/Outside_initial_cave/outside_initial_cave_layer_prospects1.png" type="Texture" id=4]
+[ext_resource path="res://Image/Map/Page1/Outside_initial_cave/outside_initial_cave_layer_sky.png" type="Texture" id=5]
+[ext_resource path="res://Image/Map/Page1/Outside_initial_cave/outside_initial_cave_layer_bg.png" type="Texture" id=6]
+[ext_resource path="res://Image/Map/Page1/Outside_initial_cave/outside_initial_cave_layer_object.png" type="Texture" id=7]
+[ext_resource path="res://Image/Map/Page1/Outside_initial_cave/outside_initial_cave_layer_farTree.png" type="Texture" id=8]
+[ext_resource path="res://Image/Map/Page1/Outside_initial_cave/outside_initial_cave_layer_prospects2.png" type="Texture" id=9]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 4 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 0.6
+} ]
+
+[node name="Room" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+
+[node name="outside_initial_cave_layer_object" type="Sprite" parent="RoomDate/SpriteNode" index="0"]
+z_index = -5
+texture = ExtResource( 7 )
+centered = false
+
+[node name="outside_initial_cave_layer_prospects" type="AnimatedSprite" parent="RoomDate/SpriteNode" index="1"]
+z_index = 5
+frames = SubResource( 1 )
+centered = false
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="RoomDate/SpriteNode" index="2"]
+
+[node name="ParallaxLayer_bg" type="ParallaxLayer" parent="RoomDate/SpriteNode/ParallaxBackground" index="0"]
+motion_scale = Vector2( 0.3, 1 )
+
+[node name="outside_initial_cave_layer_bg" type="Sprite" parent="RoomDate/SpriteNode/ParallaxBackground/ParallaxLayer_bg" index="0"]
+position = Vector2( -110, 0 )
+z_index = -100
+texture = ExtResource( 6 )
+centered = false
+
+[node name="ParallaxLayer_sky" type="ParallaxLayer" parent="RoomDate/SpriteNode/ParallaxBackground" index="1"]
+motion_scale = Vector2( 0.2, 1 )
+
+[node name="outside_initial_cave_layer_sky" type="Sprite" parent="RoomDate/SpriteNode/ParallaxBackground/ParallaxLayer_sky" index="0"]
+position = Vector2( -153, 0 )
+z_index = -50
+texture = ExtResource( 5 )
+centered = false
+
+[node name="ParallaxLayer_farTree" type="ParallaxLayer" parent="RoomDate/SpriteNode/ParallaxBackground" index="2"]
+motion_scale = Vector2( 0.7, 1 )
+
+[node name="outside_initial_cave_layer_farTree" type="Sprite" parent="RoomDate/SpriteNode/ParallaxBackground/ParallaxLayer_farTree" index="0"]
+texture = ExtResource( 8 )
+centered = false
+
+[node name="MapRigidBody" type="RigidBody2D" parent="RoomDate/CollisionNode" index="0"]
+mode = 1
+
+[node name="MapCollisionPolygon" type="CollisionPolygon2D" parent="RoomDate/CollisionNode/MapRigidBody" index="0"]
+visible = false
+polygon = PoolVector2Array( 0, 0, -24, 0, -24, 230, 800, 230, 800, 166, -19, 166, -19, 129, 5, 129, 14, 130, 22, 128, 25, 114, 28, 100, 31, 73, 37, 59, 44, 41, 50, 6, 50, 0 )
+
+[node name="Camera" parent="RoomDate" index="2"]
+position = Vector2( 35, 140 )
+
+[node name="RickDefalut" parent="." index="1" instance=ExtResource( 1 )]
+position = Vector2( 25, 157 )
+
+[node name="CameraRemoteTransform" parent="RickDefalut/Scale" index="0"]
+remote_path = NodePath("../../../RoomDate/Camera")
+
+[editable path="RoomDate"]
+
+[editable path="RickDefalut"]

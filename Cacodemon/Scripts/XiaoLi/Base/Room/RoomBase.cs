@@ -8,10 +8,18 @@ namespace XiaoLi.Base
     /// </summary>
     public abstract class RoomBase : Node2D
     {
+        
+        /// 地图数据
+        public RoomDate RoomDate { get; set; }
+        
+        
+        
         public override void _Ready()
         {
             //初始化键位映射
             ButtonMapping.Instance.Upload();
+            RoomDate = GetNode<RoomDate>("RoomDate");
+            
             Ready();
         }
 

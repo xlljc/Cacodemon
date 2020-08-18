@@ -40,16 +40,5 @@ namespace XiaoLi.Util
             return Input.IsActionJustPressed(keyName);
         }
 
-        //public delegate void EachOperation<T,TE>(System.Collections.Generic.KeyValuePair<T, TE> i);
-        /*
-        public static void Each<T,TE>(Dictionary<T, TE> dictionary,EachOperation<T,TE> method)
-        {
-            foreach (var i in dictionary)
-            {
-                method(i);
-            }
-        }
-        */
-
     }
 }

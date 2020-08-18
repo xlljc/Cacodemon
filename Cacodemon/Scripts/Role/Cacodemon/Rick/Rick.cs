@@ -1,5 +1,6 @@
 using XiaoLi.Base;
 using Godot;
+using Godot.Collections;
 using XiaoLi.Util;
 
 
@@ -78,10 +79,12 @@ public abstract class Rick : RoleBase
 		ScaNode = GetNode<Node2D>("Scale");
 		AnimationPlayer = GetNode<AnimationPlayer>("AnimationPlayer");
 		Light = GetNode<Light2D>("Scale/Light2D");
-		Light.Enabled = true;
+		//Light.Enabled = true;
 		ClimbArea = GetNode<Area2D>("Scale/Area/Climb");
 		//连接信号
 		AnimationPlayer.Connect("animation_finished", this, nameof(AnimationPlayerFinished));
+		ClimbArea.Connect("body_entered", this, nameof(SetCanClimb),new Array {true});
+		ClimbArea.Connect("body_exited", this, nameof(SetCanClimb),new Array {false});
 		//更新键位状态
 		UpdateKeyState();
 		RickReady();
@@ -194,6 +197,7 @@ public abstract class Rick : RoleBase
 	
 	/// <summary>
 	/// 爬墙过后调用该函数,重置位置
+	/// 由Animation自动调用
 	/// </summary>
 	protected void ClimbFinish()
 	{

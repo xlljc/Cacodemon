@@ -426,6 +426,11 @@ animations = [ {
 "name": "Walk",
 "speed": 8.0
 }, {
+"frames": [ SubResource( 34 ), SubResource( 35 ) ],
+"loop": true,
+"name": "Ground",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "JumpFall",
@@ -434,11 +439,6 @@ animations = [ {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "JumpUp",
-"speed": 5.0
-}, {
-"frames": [ SubResource( 34 ), SubResource( 35 ) ],
-"loop": true,
-"name": "Ground",
 "speed": 5.0
 } ]
 
@@ -454,7 +454,6 @@ MoveSpeed = 120.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -9 )
 shape = SubResource( 1 )
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Climb = SubResource( 2 )
@@ -467,13 +466,16 @@ anims/Walk = SubResource( 8 )
 
 [node name="Scale" type="Node2D" parent="."]
 
+[node name="CameraRemoteTransform" type="RemoteTransform2D" parent="Scale"]
+position = Vector2( 10, -17 )
+
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Scale"]
 frames = SubResource( 36 )
-animation = "Climb"
+animation = "Idle"
 offset = Vector2( 0, -17 )
 
 [node name="Light2D" type="Light2D" parent="Scale"]
-position = Vector2( 1, -16 )
+position = Vector2( 0, -16 )
 enabled = false
 texture = ExtResource( 13 )
 texture_scale = 0.5
@@ -489,5 +491,3 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scale/Area/Climb"]
 shape = SubResource( 37 )
-[connection signal="body_entered" from="Scale/Area/Climb" to="." method="SetCanClimb" binds= [ true ]]
-[connection signal="body_exited" from="Scale/Area/Climb" to="." method="SetCanClimb" binds= [ false ]]

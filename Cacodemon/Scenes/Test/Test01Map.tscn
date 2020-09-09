@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Scripts/Test/TestMap.cs" type="Script" id=1]
+[ext_resource path="res://Image/Map/Page1/Initial_cave/initial_cave_shadow.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Role/Cacodemon/Rick/RickDefault.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Image/Map/Page1/Initial_cave/initial_cave.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Rooms/RoomBase/RoomBase.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Image/Effect/Light/light.png" type="Texture" id=5]
-
-[sub_resource type="StreamTexture" id=1]
-load_path = "res://.import/initial_cave.png-a6c3b9784748ee05f6b6c2090ab049dc.stex"
+[ext_resource path="res://Scripts/Test/TestMap.cs" type="Script" id=6]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 3, 6 )
@@ -13,96 +13,73 @@ extents = Vector2( 3, 6 )
 [sub_resource type="OccluderPolygon2D" id=3]
 polygon = PoolVector2Array( -56, 52, -56, 279, 702, 280, 702, 147, 529, 147, 529, 165, 472, 165, 472, 189, 420, 189, 420, 214, 360, 214, 360, 238, -3, 238, -3, 192, -2, 183, -14, 163, -14, 155, -10, 130, -10, 104, -2, 88, 12, 80, 50, 80, 89, 88, 116, 76, 136, 76, 163, 106, 202, 131, 213, 130, 256, 149, 283, 149, 302, 142, 326, 143, 356, 125, 395, 109, 448, 103, 481, 105, 507, 92, 531, 96, 557, 94, 574, 90, 587, 94, 626, 100, 644, 100, 652, 102, 666, 112, 674, 112, 674, 49 )
 
-[node name="Test01Map" type="Node2D"]
-script = ExtResource( 1 )
+[node name="Room" instance=ExtResource( 4 )]
+script = ExtResource( 6 )
 
-[node name="MapDate" type="Node2D" parent="."]
+[node name="Cave" type="Sprite" parent="RoomDate/SpriteNode" index="0"]
+position = Vector2( 0, -3 )
+texture = ExtResource( 3 )
+centered = false
 
-[node name="Cave" type="TextureRect" parent="MapDate"]
-margin_top = -3.0
-margin_right = 730.0
-margin_bottom = 227.0
-texture = SubResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Shadow" type="Sprite" parent="RoomDate/SpriteNode" index="1"]
+z_index = 100
+texture = ExtResource( 1 )
+centered = false
 
-[node name="Shadow" type="ColorRect" parent="MapDate"]
-margin_left = 1.0
-margin_top = 1.0
-margin_right = 738.0
-margin_bottom = 225.0
-color = Color( 0, 0, 0, 0.462745 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CaveRigidBody" type="RigidBody2D" parent="MapDate"]
+[node name="CaveRigidBody" type="RigidBody2D" parent="RoomDate/CollisionNode" index="0"]
 visible = false
 collision_mask = 0
 mode = 1
 
-[node name="CaveCollision" type="CollisionPolygon2D" parent="MapDate/CaveRigidBody"]
+[node name="CaveCollision" type="CollisionPolygon2D" parent="RoomDate/CollisionNode/CaveRigidBody" index="0"]
 polygon = PoolVector2Array( 0, 227, 0, 0, 730, -3, 730, 59, 722, 59, 708, 50, 700, 48, 682, 48, 643, 42, 630, 38, 613, 42, 587, 44, 563, 40, 537, 53, 505, 51, 451, 57, 412, 73, 382, 91, 358, 90, 339, 97, 312, 97, 269, 78, 258, 79, 219, 54, 192, 24, 172, 24, 145, 36, 106, 28, 68, 28, 54, 36, 46, 52, 46, 78, 42, 103, 42, 111, 54, 131, 53, 140, 53, 186, 416, 186, 416, 162, 476, 162, 476, 137, 528, 137, 528, 113, 585, 113, 585, 95, 758, 95, 758, 228 )
 
-[node name="Climb" type="Node" parent="MapDate"]
+[node name="Climb" type="Node" parent="RoomDate/CollisionNode" index="1"]
 
-[node name="ClimbNode" type="RigidBody2D" parent="MapDate/Climb"]
+[node name="ClimbNode" type="RigidBody2D" parent="RoomDate/CollisionNode/Climb" index="0"]
 position = Vector2( 419, 168 )
 collision_layer = 16
 collision_mask = 0
 mode = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MapDate/Climb/ClimbNode"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDate/CollisionNode/Climb/ClimbNode" index="0"]
 shape = SubResource( 2 )
 
-[node name="ClimbNode2" type="RigidBody2D" parent="MapDate/Climb"]
+[node name="ClimbNode2" type="RigidBody2D" parent="RoomDate/CollisionNode/Climb" index="1"]
 position = Vector2( 479, 143 )
 collision_layer = 16
 collision_mask = 0
 mode = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MapDate/Climb/ClimbNode2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDate/CollisionNode/Climb/ClimbNode2" index="0"]
 shape = SubResource( 2 )
 
-[node name="ClimbNode3" type="RigidBody2D" parent="MapDate/Climb"]
+[node name="ClimbNode3" type="RigidBody2D" parent="RoomDate/CollisionNode/Climb" index="2"]
 position = Vector2( 531, 119 )
 collision_layer = 16
 collision_mask = 0
 mode = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MapDate/Climb/ClimbNode3"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDate/CollisionNode/Climb/ClimbNode3" index="0"]
 shape = SubResource( 2 )
 
-[node name="ClimbNode4" type="RigidBody2D" parent="MapDate/Climb"]
+[node name="ClimbNode4" type="RigidBody2D" parent="RoomDate/CollisionNode/Climb" index="3"]
 position = Vector2( 588, 101 )
 collision_layer = 16
 collision_mask = 0
 mode = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="MapDate/Climb/ClimbNode4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RoomDate/CollisionNode/Climb/ClimbNode4" index="0"]
 shape = SubResource( 2 )
 
-[node name="Rick" parent="." instance=ExtResource( 2 )]
-position = Vector2( 334, 177 )
+[node name="Camera" parent="RoomDate" index="2"]
+position = Vector2( 235, 146 )
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Rick"]
-remote_path = NodePath("../../Camera2D")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 334, 177 )
-current = true
-limit_left = 0
-limit_top = 0
-limit_right = 730
-limit_bottom = 0
-smoothing_enabled = true
-
-[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+[node name="LightOccluder2D" type="LightOccluder2D" parent="RoomDate" index="3"]
 position = Vector2( 56, -52 )
 occluder = SubResource( 3 )
 
-[node name="Light2D" type="Light2D" parent="."]
+[node name="Light2D" type="Light2D" parent="RoomDate" index="4"]
 position = Vector2( 811, 47 )
 texture = ExtResource( 5 )
 texture_scale = 1.5
@@ -110,4 +87,10 @@ color = Color( 0.796078, 0.713726, 0.607843, 1 )
 energy = 1.2
 shadow_enabled = true
 
-[editable path="Rick"]
+[node name="Rick" parent="RoomDate" index="5" instance=ExtResource( 2 )]
+position = Vector2( 235, 146 )
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="RoomDate/Rick" index="3"]
+remote_path = NodePath("../../Camera")
+
+[editable path="RoomDate"]

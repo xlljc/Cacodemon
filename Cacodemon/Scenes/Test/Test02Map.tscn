@@ -37,7 +37,7 @@ script = ExtResource( 3 )
 [node name="outside_initial_cave_layer_object" type="AnimatedSprite" parent="RoomDate/SpriteNode" index="0"]
 z_index = -5
 frames = SubResource( 2 )
-frame = 2
+frame = 1
 playing = true
 centered = false
 
@@ -59,7 +59,6 @@ centered = false
 
 [node name="ParallaxLayer_sky" type="ParallaxLayer" parent="RoomDate/SpriteNode/ParallaxBackground" index="1"]
 visible = false
-position = Vector2( 38, 17 )
 motion_scale = Vector2( 0.2, 1 )
 
 [node name="outside_initial_cave_layer_sky" type="Sprite" parent="RoomDate/SpriteNode/ParallaxBackground/ParallaxLayer_sky" index="0"]
@@ -69,7 +68,6 @@ texture = ExtResource( 5 )
 centered = false
 
 [node name="ParallaxLayer_farTree2" type="ParallaxLayer" parent="RoomDate/SpriteNode/ParallaxBackground" index="2"]
-position = Vector2( -28, 0 )
 motion_scale = Vector2( 0.55, 1 )
 
 [node name="outside_initial_cave_layer_farTree2" type="Sprite" parent="RoomDate/SpriteNode/ParallaxBackground/ParallaxLayer_farTree2" index="0"]
@@ -77,7 +75,6 @@ texture = ExtResource( 11 )
 centered = false
 
 [node name="ParallaxLayer_farTree" type="ParallaxLayer" parent="RoomDate/SpriteNode/ParallaxBackground" index="3"]
-position = Vector2( -15, 0 )
 motion_scale = Vector2( 0.7, 1 )
 
 [node name="outside_initial_cave_layer_farTree" type="Sprite" parent="RoomDate/SpriteNode/ParallaxBackground/ParallaxLayer_farTree" index="0"]

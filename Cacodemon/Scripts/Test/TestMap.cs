@@ -14,7 +14,7 @@ public class TestMap : RoomBase
 	{
 		if (MyInput.KeyPressed("restart"))
 		{
-			GetTree().ChangeScene("res://Scenes/Test/Test02Map.tscn");
+			GetTree().ChangeScene("res://Scenes/Test/Test01Map.tscn");
 		}
 	}
 

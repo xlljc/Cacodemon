@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Effect/Part/EnvironmentPart.cs" type="Script" id=1]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.254125, 0.366337, 0.488449, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 0.956863, 0.737255, 0.635294, 0.643137, 0.945313, 0.661694, 0.529338, 0.745098, 0.956863, 0.72549, 0.619608, 0.694118, 1, 1, 1, 0.0196078 )
+
+[node name="EnvironmentPart" type="CPUParticles2D"]
+amount = 25
+lifetime = 3.0
+local_coords = false
+emission_shape = 2
+emission_rect_extents = Vector2( 200, 112 )
+direction = Vector2( -1, 0 )
+spread = 0.0
+gravity = Vector2( 0, 15 )
+initial_velocity = 60.24
+initial_velocity_random = 0.6
+tangential_accel = 26.51
+tangential_accel_random = 1.0
+color_ramp = SubResource( 1 )
+script = ExtResource( 1 )

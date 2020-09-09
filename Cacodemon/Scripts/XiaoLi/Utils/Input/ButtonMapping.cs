@@ -38,7 +38,7 @@ namespace XiaoLi.Util
                 uint key = uint.Parse(file.GetValue("windowsKey", i).ToString());
                 Mapping.Add(i, key);
                 //如果存在就删除然后重新映射
-                if (InputMap.HasAction(i))    
+                if (InputMap.HasAction(i))
                     InputMap.EraseAction(i);
                 //创建一个键位映射
                 InputMap.AddAction(i);

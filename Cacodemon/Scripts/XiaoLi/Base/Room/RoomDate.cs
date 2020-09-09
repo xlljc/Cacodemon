@@ -28,7 +28,7 @@ public class RoomDate : Node2D
     private Dictionary<string,Sprite> _sprites = new Dictionary<string, Sprite>();
     
     /// 所有在SpriteNode节点下的视差背景
-    private Dictionary<string,ParallaxBackground> _parallaxBackgrounds = new Dictionary<string, ParallaxBackground>();
+    private readonly Dictionary<string,ParallaxBackground> _parallaxBackgrounds = new Dictionary<string, ParallaxBackground>();
 
     
     
@@ -68,12 +68,21 @@ public class RoomDate : Node2D
     /// </summary>
     public void InitSpriteNodeDate()
     {
+        ParallaxBackground pbTemp = null;
         EachUtil.Each(GetNode("SpriteNode"), (i) =>
         {
-            if (i is Sprite sprite)
-                _sprites.Add(sprite.Name, sprite);
-            else if (i is ParallaxBackground parallaxBackground)
-                _parallaxBackgrounds.Add(parallaxBackground.Name, parallaxBackground);
+            switch (i)
+            {
+                case Sprite sprite:
+                    //判断是否是ParallaxBackground下的子节点
+                    if(pbTemp == null || !pbTemp.IsAParentOf(sprite))
+                        _sprites.Add(sprite.Name, sprite);
+                    break;
+                case ParallaxBackground parallaxBackground:
+                    pbTemp = parallaxBackground;
+                    _parallaxBackgrounds.Add(parallaxBackground.Name, parallaxBackground);
+                    break;
+            }
         });
     }
 

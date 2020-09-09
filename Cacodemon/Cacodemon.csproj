@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scripts\Effect\Part\EnvironmentPart.cs" />
     <Compile Include="Scripts\Role\Cacodemon\Rick\Rick.cs" />
     <Compile Include="Scripts\Role\Cacodemon\Rick\State\RickDefault.cs" />
     <Compile Include="Scripts\Role\Cacodemon\Rick\State\RickKatana.cs" />

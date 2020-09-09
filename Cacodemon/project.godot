@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Cacodemon"
-run/main_scene="res://Scenes/Test/Test01Map.tscn"
+run/main_scene="res://Scenes/Test/Test02Map.tscn"
 config/icon="res://icon.png"
 
 [display]

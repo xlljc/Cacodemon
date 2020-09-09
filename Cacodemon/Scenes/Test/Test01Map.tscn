@@ -4,13 +4,13 @@
 [ext_resource path="res://Scenes/Role/Cacodemon/Rick/RickDefault.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Image/Effect/Light/light.png" type="Texture" id=5]
 
-[sub_resource type="StreamTexture" id=3]
+[sub_resource type="StreamTexture" id=1]
 load_path = "res://.import/initial_cave.png-a6c3b9784748ee05f6b6c2090ab049dc.stex"
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 3, 6 )
 
-[sub_resource type="OccluderPolygon2D" id=2]
+[sub_resource type="OccluderPolygon2D" id=3]
 polygon = PoolVector2Array( -56, 52, -56, 279, 702, 280, 702, 147, 529, 147, 529, 165, 472, 165, 472, 189, 420, 189, 420, 214, 360, 214, 360, 238, -3, 238, -3, 192, -2, 183, -14, 163, -14, 155, -10, 130, -10, 104, -2, 88, 12, 80, 50, 80, 89, 88, 116, 76, 136, 76, 163, 106, 202, 131, 213, 130, 256, 149, 283, 149, 302, 142, 326, 143, 356, 125, 395, 109, 448, 103, 481, 105, 507, 92, 531, 96, 557, 94, 574, 90, 587, 94, 626, 100, 644, 100, 652, 102, 666, 112, 674, 112, 674, 49 )
 
 [node name="Test01Map" type="Node2D"]
@@ -22,7 +22,7 @@ script = ExtResource( 1 )
 margin_top = -3.0
 margin_right = 730.0
 margin_bottom = 227.0
-texture = SubResource( 3 )
+texture = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -54,7 +54,7 @@ collision_mask = 0
 mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MapDate/Climb/ClimbNode"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="ClimbNode2" type="RigidBody2D" parent="MapDate/Climb"]
 position = Vector2( 479, 143 )
@@ -63,7 +63,7 @@ collision_mask = 0
 mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MapDate/Climb/ClimbNode2"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="ClimbNode3" type="RigidBody2D" parent="MapDate/Climb"]
 position = Vector2( 531, 119 )
@@ -72,7 +72,7 @@ collision_mask = 0
 mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MapDate/Climb/ClimbNode3"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="ClimbNode4" type="RigidBody2D" parent="MapDate/Climb"]
 position = Vector2( 588, 101 )
@@ -81,7 +81,7 @@ collision_mask = 0
 mode = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MapDate/Climb/ClimbNode4"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Rick" parent="." instance=ExtResource( 2 )]
 position = Vector2( 334, 177 )
@@ -100,7 +100,7 @@ smoothing_enabled = true
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="."]
 position = Vector2( 56, -52 )
-occluder = SubResource( 2 )
+occluder = SubResource( 3 )
 
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 811, 47 )

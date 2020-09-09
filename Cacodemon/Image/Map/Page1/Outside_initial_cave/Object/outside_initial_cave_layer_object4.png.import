@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/outside_initial_cave_layer_object.png-3053cecf0d82ca47a6e0cf727ef34fa9.stex"
+path="res://.import/outside_initial_cave_layer_object4.png-dde5d869fa1eb2a1c4fa592a8093c9aa.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Image/Map/Page1/Outside_initial_cave/outside_initial_cave_layer_object.png"
-dest_files=[ "res://.import/outside_initial_cave_layer_object.png-3053cecf0d82ca47a6e0cf727ef34fa9.stex" ]
+source_file="res://Image/Map/Page1/Outside_initial_cave/Object/outside_initial_cave_layer_object4.png"
+dest_files=[ "res://.import/outside_initial_cave_layer_object4.png-dde5d869fa1eb2a1c4fa592a8093c9aa.stex" ]
 
 [params]
 

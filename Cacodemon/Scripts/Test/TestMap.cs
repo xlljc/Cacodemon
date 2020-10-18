@@ -5,9 +5,16 @@ using XiaoLi.Util;
 public class TestMap : RoomBase
 {
 
+	[Export]
+	public Vector2 CameraStartPos { get; set; }
+	
+	[Export]
+	public Vector2 CameraEndPos { get; set; }
+	
 	protected override void Ready()
 	{
-		RoomDate.SetCamera(Vector2.Zero, new Vector2(800,225));
+		new Color("");
+		RoomDate.SetCamera(CameraStartPos,CameraEndPos);
 	}
 
 	protected override void Process(float delta)

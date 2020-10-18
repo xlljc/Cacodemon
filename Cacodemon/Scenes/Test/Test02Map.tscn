@@ -15,7 +15,7 @@
 [ext_resource path="res://Image/Map/Page1/Outside_initial_cave/Object/outside_initial_cave_layer_object4.png" type="Texture" id=13]
 [ext_resource path="res://Image/Map/Page1/Outside_initial_cave/Object/outside_initial_cave_layer_object3.png" type="Texture" id=14]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 12 ), ExtResource( 7 ), ExtResource( 14 ), ExtResource( 13 ) ],
 "loop": true,
@@ -23,7 +23,7 @@ animations = [ {
 "speed": 4.0
 } ]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
 "frames": [ ExtResource( 4 ), ExtResource( 9 ) ],
 "loop": true,
@@ -33,17 +33,18 @@ animations = [ {
 
 [node name="Room" instance=ExtResource( 2 )]
 script = ExtResource( 3 )
+CameraEndPos = Vector2( 800, 225 )
 
 [node name="outside_initial_cave_layer_object" type="AnimatedSprite" parent="RoomDate/SpriteNode" index="0"]
 z_index = -5
-frames = SubResource( 2 )
-frame = 1
+frames = SubResource( 1 )
+frame = 2
 playing = true
 centered = false
 
 [node name="outside_initial_cave_layer_prospects" type="AnimatedSprite" parent="RoomDate/SpriteNode" index="1"]
 z_index = 5
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 centered = false
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="RoomDate/SpriteNode" index="2"]

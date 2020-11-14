@@ -1,130 +1,131 @@
-﻿using Godot;
+using Godot;
 using XiaoLi.Util;
+using static Godot.GD;
 
 /// <summary>
 /// 
 /// </summary>
 public class RickDefault : Rick
 {
-    
-    protected override void RickReady()
-    {
-        
-    }
-    
-    protected override void Process(float delta)
-    {
-        
-    }
+	
+	protected override void RickReady()
+	{
+		Print("加载完成!");
+	}
+	
+	protected override void Process(float delta)
+	{
+		
+	}
 
-    protected override void PhysicsProcess(float delta)
-    {
-        
-    }
+	protected override void PhysicsProcess(float delta)
+	{
+		
+	}
 
-    
-    protected override Sta RickListeningState(Sta oldState)
-    {
-        switch (oldState)
-        {
-            case Sta.Idle:
-                if (_dirX != 0) //如果移动
-                    oldState = MyInput.KeyPressed("shift") ? Sta.Run : Sta.Walk;
-                else if (_jmp) //如果按下跳跃
-                    oldState = Sta.JumpUp;
-                else if (Velocity.y > 0) //如果下落
-                    oldState = Sta.JumpFall;
-                break;
-            case Sta.Walk:
-                if (_dirX == 0) //如果静止
-                    oldState = Sta.Idle;
-                else if (MyInput.Key("shift") == 1)
-                    oldState = Sta.Run;
-                else if (_jmp) //如果按下跳跃
-                    oldState = Sta.JumpUp;
-                else if (Velocity.y > 0) //如果下落
-                    oldState = Sta.JumpFall;
-                break;
-            case Sta.Run:
-                if (_dirX == 0) //如果静止
-                    oldState = Sta.Idle;
-                else if (MyInput.Key("shift") == 0)
-                    oldState = Sta.Walk;
-                else if (_jmp) //如果按下跳跃
-                    oldState = Sta.JumpUp;
-                else if (Velocity.y > 0) //如果下落
-                    oldState = Sta.JumpFall;
-                break;
-            case Sta.JumpUp:
-                if (Velocity.y > 0) //如果上升的速度小于0
-                    oldState = Sta.JumpFall;
-                break;
-            case Sta.JumpFall:
-                if (CanClimb) //如果下落可以抓到墙
-                    oldState = Sta.Climb;
-                else if (IsOnFloor()) //如果落地
-                    if (_dirX != 0)
-                        oldState = Sta.Run;
-                    else
-                        oldState = Sta.Ground;
-                break;
-            case Sta.Ground:
-                if (AnimFinished) //如果动画结束
-                    oldState = Sta.Idle;
-                else if (_dirX != 0) //如果移动
-                    oldState = Sta.Run;
-                break;
-            case Sta.Climb:
-                if (AnimFinished) //如果动画结束
-                    oldState = Sta.Idle;
-                break;
-        }
-        return oldState;
-    }
+	
+	protected override State RickListeningState(State oldState)
+	{
+		switch (oldState)
+		{
+			case State.Idle:
+				if (_dirX != 0) //如果移动
+					oldState = MyInput.KeyPressed("shift") ? State.Run : State.Walk;
+				else if (_jmp) //如果按下跳跃
+					oldState = State.JumpUp;
+				else if (Velocity.y > 0) //如果下落
+					oldState = State.JumpFall;
+				break;
+			case State.Walk:
+				if (_dirX == 0) //如果静止
+					oldState = State.Idle;
+				else if (MyInput.Key("shift") == 1)
+					oldState = State.Run;
+				else if (_jmp) //如果按下跳跃
+					oldState = State.JumpUp;
+				else if (Velocity.y > 0) //如果下落
+					oldState = State.JumpFall;
+				break;
+			case State.Run:
+				if (_dirX == 0) //如果静止
+					oldState = State.Idle;
+				else if (MyInput.Key("shift") == 0)
+					oldState = State.Walk;
+				else if (_jmp) //如果按下跳跃
+					oldState = State.JumpUp;
+				else if (Velocity.y > 0) //如果下落
+					oldState = State.JumpFall;
+				break;
+			case State.JumpUp:
+				if (Velocity.y > 0) //如果上升的速度小于0
+					oldState = State.JumpFall;
+				break;
+			case State.JumpFall:
+				if (CanClimb) //如果下落可以抓到墙
+					oldState = State.Climb;
+				else if (IsOnFloor()) //如果落地
+					if (_dirX != 0)
+						oldState = State.Run;
+					else
+						oldState = State.Ground;
+				break;
+			case State.Ground:
+				if (AnimFinished) //如果动画结束
+					oldState = State.Idle;
+				else if (_dirX != 0) //如果移动
+					oldState = State.Run;
+				break;
+			case State.Climb:
+				if (AnimFinished) //如果动画结束
+					oldState = State.Idle;
+				break;
+		}
+		return oldState;
+	}
 
-    protected override string RickPlayAnimation(Sta oldState, Sta newState)
-    {
-        return newState.ToString();
-    }
-    
-    public override Vector2 Operation(float delta)
-    {
-        Vector2 velocity = Vector2.Zero;
-        switch (State)
-        {
-            case Sta.Idle:
-                FaceTo(_dirX);
-                break;
-            case Sta.Walk:
-                MoveSpeed = 45;
-                velocity = Vector2.Right * _dirX;
-                FaceTo(_dirX);
-                break;
-            case Sta.Run:
-                MoveSpeed = 120;
-                velocity = Vector2.Right * _dirX;
-                FaceTo(_dirX);
-                break;
-            case Sta.JumpUp:
-                FaceTo(_dirX);
-                velocity = Vector2.Right * _dirX;
-                if (_jmp) //如果触发跳跃
-                    velocity.y = -1;
-                break;
-            case Sta.JumpFall:
-                FaceTo(_dirX);
-                velocity = Vector2.Right * _dirX;
-                break;
-            case Sta.Ground:
-                
-                break;
-            case Sta.Climb:
+	protected override string RickPlayAnimation(State oldState, State newState)
+	{
+		return newState.ToString();
+	}
+	
+	public override Vector2 Operation(float delta)
+	{
+		Vector2 velocity = Vector2.Zero;
+		switch (State)
+		{
+			case State.Idle:
+				FaceTo(_dirX);
+				break;
+			case State.Walk:
+				MoveSpeed = 45;
+				velocity = Vector2.Right * _dirX;
+				FaceTo(_dirX);
+				break;
+			case State.Run:
+				MoveSpeed = 120;
+				velocity = Vector2.Right * _dirX;
+				FaceTo(_dirX);
+				break;
+			case State.JumpUp:
+				FaceTo(_dirX);
+				velocity = Vector2.Right * _dirX;
+				if (_jmp) //如果触发跳跃
+					velocity.y = -1;
+				break;
+			case State.JumpFall:
+				FaceTo(_dirX);
+				velocity = Vector2.Right * _dirX;
+				break;
+			case State.Ground:
+				
+				break;
+			case State.Climb:
 
-                break;
-        }
-        return velocity;
-    }
+				break;
+		}
+		return velocity;
+	}
 
 
-    
+	
 }

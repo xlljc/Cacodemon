@@ -421,6 +421,16 @@ animations = [ {
 "name": "Climb",
 "speed": 13.0
 }, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "JumpUp",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "JumpFall",
+"speed": 5.0
+}, {
 "frames": [ SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ) ],
 "loop": true,
 "name": "Walk",
@@ -429,16 +439,6 @@ animations = [ {
 "frames": [ SubResource( 34 ), SubResource( 35 ) ],
 "loop": true,
 "name": "Ground",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "JumpFall",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "JumpUp",
 "speed": 5.0
 } ]
 
@@ -454,6 +454,7 @@ MoveSpeed = 120.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -9 )
 shape = SubResource( 1 )
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Climb = SubResource( 2 )
@@ -471,11 +472,11 @@ position = Vector2( 10, -17 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="Scale"]
 frames = SubResource( 36 )
-animation = "Idle"
+animation = "Climb"
 offset = Vector2( 0, -17 )
 
 [node name="Light2D" type="Light2D" parent="Scale"]
-position = Vector2( 0, -16 )
+position = Vector2( 1, -16 )
 enabled = false
 texture = ExtResource( 13 )
 texture_scale = 0.5

@@ -13,9 +13,8 @@
         "packagesPath": "C:\\Users\\Administrator.SKY-20190312LLS\\.nuget\\packages\\",
         "outputPath": "H:\\MyGameProject\\Cacodemon\\GameProject\\Cacodemon\\.mono\\temp\\obj\\",
         "projectStyle": "PackageReference",
-        "skipContentFileWrite": true,
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
           "C:\\Users\\Administrator.SKY-20190312LLS\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -23,42 +22,32 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net47"
+          "net472"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net47": {
+          "net472": {
             "projectReferences": {}
           }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
         }
       },
       "frameworks": {
-        "net47": {
+        "net472": {
           "dependencies": {
-            "Microsoft.NETFramework.ReferenceAssemblies": {
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[1.0.0, )"
-            },
             "Microsoft.NETFramework.ReferenceAssemblies.net47": {
               "target": "Package",
               "version": "[1.0.0, )"
             }
-          }
-        }
-      },
-      "runtimes": {
-        "win": {
-          "#import": []
-        },
-        "win-x64": {
-          "#import": []
-        },
-        "win-x86": {
-          "#import": []
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -19,109 +19,109 @@ public class RickKatana : Rick
 	{
 	}
 
-	protected override Sta RickListeningState(Sta oldState)
+	protected override State RickListeningState(State oldState)
 	{
 		switch (oldState)
 		{
-			case Sta.Idle:
+			case State.Idle:
 				if (_dirX != 0) //如果移动了
-					oldState = Sta.Run;
+					oldState = State.Run;
 				else if (_atk) //如果按下攻击
-					oldState = Sta.Attack;
+					oldState = State.Attack;
 				else if (_jmp) //如果按下跳跃
-					oldState = Sta.JumpUp;
+					oldState = State.JumpUp;
 				else if (Velocity.y > 0) //如果下落
-					oldState = Sta.JumpFall;
+					oldState = State.JumpFall;
 				else if (_dirY == 1) //如果按了下键,变成防御状态
-					oldState = Sta.Defense;
+					oldState = State.Defense;
 				break;
-			case Sta.Run:
+			case State.Run:
 				if (_dirX == 0) //如果静止
-					oldState = Sta.Idle;
+					oldState = State.Idle;
 				else if (_atk) //如果按下攻击
-					oldState = Sta.Attack;
+					oldState = State.Attack;
 				else if (_jmp) //如果按下跳跃
-					oldState = Sta.JumpUp;
+					oldState = State.JumpUp;
 				else if (Velocity.y > 0) //如果下落
-					oldState = Sta.JumpFall;
+					oldState = State.JumpFall;
 				else if (_dirY == 1) //如果按了下键,变成防御状态
-					oldState = Sta.Defense;
+					oldState = State.Defense;
 				break;
-			case Sta.Attack:
+			case State.Attack:
 				if (CanChangeState) //直到可以改变状态
 					if (_dirX != 0) //如果移动
-						oldState = Sta.Run;
+						oldState = State.Run;
 					else if (_atk) //如果按下攻击
-						oldState = Sta.Attack;
+						oldState = State.Attack;
 					else if (AnimFinished) //如果动画结束
-						oldState = Sta.Idle;
+						oldState = State.Idle;
 				break;
-			case Sta.JumpUp:
+			case State.JumpUp:
 				if (Velocity.y > 0) //如果上升的速度小于0
-					oldState = Sta.JumpFall;
+					oldState = State.JumpFall;
 				break;
-			case Sta.JumpFall:
+			case State.JumpFall:
 				if (IsOnFloor()) //如果落地
 					if (_dirX != 0)
-						oldState = Sta.Run;
+						oldState = State.Run;
 					else
-						oldState = Sta.Ground;
+						oldState = State.Ground;
 				break;
-			case Sta.Ground:
+			case State.Ground:
 				if (AnimFinished) //如果动画结束
-					oldState = Sta.Idle;
+					oldState = State.Idle;
 				else if (_dirX != 0) //如果移动
-					oldState = Sta.Run;
+					oldState = State.Run;
 				break;
-			case Sta.Defense:
+			case State.Defense:
 				if (_dirY != 1) //如果停止按了下键,取消防御状态
 					if (_dirX != 0) //如果移动了
-						oldState = Sta.Run;
+						oldState = State.Run;
 					else if (_jmp) //如果按下跳跃
-						oldState = Sta.JumpUp;
+						oldState = State.JumpUp;
 					else if (_atk) //如果按下攻击
-						oldState = Sta.Attack;
+						oldState = State.Attack;
 					else
-						oldState = Sta.UnDefense; //默认播放取消防御动画
+						oldState = State.UnDefense; //默认播放取消防御动画
 				break;
-			case Sta.UnDefense:
+			case State.UnDefense:
 				if (AnimFinished) //如果动画结束了
-					oldState = Sta.Idle;
+					oldState = State.Idle;
 				else if (_dirX != 0) //如果移动了
-					oldState = Sta.Run;
+					oldState = State.Run;
 				else if (_jmp) //如果按下跳跃
-					oldState = Sta.JumpUp;
+					oldState = State.JumpUp;
 				else if (_atk) //如果按下攻击
-					oldState = Sta.Attack;
+					oldState = State.Attack;
 				break;
 		}
 
 		return oldState;
 	}
 
-	protected override string RickPlayAnimation(Sta oldState, Sta newState)
+	protected override string RickPlayAnimation(State oldState, State newState)
 	{
 		switch (newState)
 		{
-			case Sta.Idle:
+			case State.Idle:
 				return "Idle2";
-			case Sta.Run:
+			case State.Run:
 				return "Run";
-			case Sta.Attack:
+			case State.Attack:
 				//根据不同的键位触发的攻击动作不一样
 				if (_dirY == -1) //如果按下向上键
 					return "Attack" + MyMath.RandRange(2, 3);
 				else
 					return "Attack1";
-			case Sta.JumpUp:
+			case State.JumpUp:
 				return "JumpUp";
-			case Sta.JumpFall:
+			case State.JumpFall:
 				return "JumpFall";
-			case Sta.Ground:
+			case State.Ground:
 				return "Ground";
-			case Sta.Defense:
+			case State.Defense:
 				return "Defense";
-			case Sta.UnDefense:
+			case State.UnDefense:
 				return "UnDefense";
 		}
 
@@ -134,33 +134,33 @@ public class RickKatana : Rick
 		//根据不同的状态进行运动
 		switch (State)
 		{
-			case Sta.Idle:
+			case State.Idle:
 				FaceTo(_dirX);
 				break;
-			case Sta.Run:
+			case State.Run:
 				velocity = Vector2.Right * _dirX;
 				FaceTo(_dirX);
 				break;
-			case Sta.Attack:
+			case State.Attack:
 
 				break;
-			case Sta.JumpUp:
+			case State.JumpUp:
 				FaceTo(_dirX);
 				velocity = Vector2.Right * _dirX;
 				if (_jmp) //如果触发跳跃
 					velocity.y = -1;
 				break;
-			case Sta.JumpFall:
+			case State.JumpFall:
 				FaceTo(_dirX);
 				velocity = Vector2.Right * _dirX;
 				break;
-			case Sta.Ground:
+			case State.Ground:
 
 				break;
-			case Sta.Defense:
+			case State.Defense:
 				FaceTo(_dirX);
 				break;
-			case Sta.UnDefense:
+			case State.UnDefense:
 
 				break;
 		}

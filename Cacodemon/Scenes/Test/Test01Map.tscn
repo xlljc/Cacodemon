@@ -74,7 +74,7 @@ mode = 1
 shape = SubResource( 1 )
 
 [node name="Camera" parent="RoomDate" index="2"]
-position = Vector2( 95, 174 )
+position = Vector2( 377, 149 )
 
 [node name="LightOccluder2D" type="LightOccluder2D" parent="RoomDate" index="3"]
 position = Vector2( 56, -52 )
@@ -89,7 +89,7 @@ energy = 1.2
 shadow_enabled = true
 
 [node name="RickDefalut" parent="." index="1" instance=ExtResource( 2 )]
-position = Vector2( 95, 174 )
+position = Vector2( 377, 149 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="RickDefalut" index="3"]
 remote_path = NodePath("../../RoomDate/Camera")

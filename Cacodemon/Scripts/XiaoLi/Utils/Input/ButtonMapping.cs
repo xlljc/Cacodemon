@@ -31,11 +31,11 @@ namespace XiaoLi.Util
             ConfigFile file = new ConfigFile();
             file.Load("res://Config/config.ini");
             //获取所有映射的键
-            string[] keys = file.GetSectionKeys("windowsKey");
+            string[] keys = file.GetSectionKeys("KeyMap");
             //储存键位
             foreach (var i in keys)
             {
-                uint key = uint.Parse(file.GetValue("windowsKey", i).ToString());
+                uint key = uint.Parse(file.GetValue("KeyMap", i).ToString());
                 Mapping.Add(i, key);
                 //如果存在就删除然后重新映射
                 if (InputMap.HasAction(i))

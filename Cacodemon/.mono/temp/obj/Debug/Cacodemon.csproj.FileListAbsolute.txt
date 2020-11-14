@@ -4,3 +4,6 @@ H:\MyGameProject\Cacodemon\GameProject\Cacodemon\.mono\temp\obj\Debug\Cacodemon.
 H:\MyGameProject\Cacodemon\GameProject\Cacodemon\.mono\temp\obj\Debug\Cacodemon.csproj.CoreCompileInputs.cache
 H:\MyGameProject\Cacodemon\GameProject\Cacodemon\.mono\temp\obj\Debug\Cacodemon.dll
 H:\MyGameProject\Cacodemon\GameProject\Cacodemon\.mono\temp\obj\Debug\Cacodemon.pdb
+H:\MyGameProject\Cacodemon\GameProject\Cacodemon\.mono\temp\bin\Debug\mscorlib.dll
+H:\MyGameProject\Cacodemon\GameProject\Cacodemon\.mono\temp\bin\Debug\mscorlib.xml
+H:\MyGameProject\Cacodemon\GameProject\Cacodemon\.mono\temp\obj\Debug\Cacodemon.csproj.CopyComplete

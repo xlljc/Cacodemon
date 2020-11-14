@@ -1,55 +1,7 @@
 {
   "version": 3,
   "targets": {
-    ".NETFramework,Version=v4.7": {
-      "Microsoft.NETFramework.ReferenceAssemblies/1.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.NETFramework.ReferenceAssemblies.net47": "1.0.0"
-        }
-      },
-      "Microsoft.NETFramework.ReferenceAssemblies.net47/1.0.0": {
-        "type": "package",
-        "build": {
-          "build/Microsoft.NETFramework.ReferenceAssemblies.net47.targets": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.7/win": {
-      "Microsoft.NETFramework.ReferenceAssemblies/1.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.NETFramework.ReferenceAssemblies.net47": "1.0.0"
-        }
-      },
-      "Microsoft.NETFramework.ReferenceAssemblies.net47/1.0.0": {
-        "type": "package",
-        "build": {
-          "build/Microsoft.NETFramework.ReferenceAssemblies.net47.targets": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.7/win-x64": {
-      "Microsoft.NETFramework.ReferenceAssemblies/1.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.NETFramework.ReferenceAssemblies.net47": "1.0.0"
-        }
-      },
-      "Microsoft.NETFramework.ReferenceAssemblies.net47/1.0.0": {
-        "type": "package",
-        "build": {
-          "build/Microsoft.NETFramework.ReferenceAssemblies.net47.targets": {}
-        }
-      }
-    },
-    ".NETFramework,Version=v4.7/win-x86": {
-      "Microsoft.NETFramework.ReferenceAssemblies/1.0.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.NETFramework.ReferenceAssemblies.net47": "1.0.0"
-        }
-      },
+    ".NETFramework,Version=v4.7.2": {
       "Microsoft.NETFramework.ReferenceAssemblies.net47/1.0.0": {
         "type": "package",
         "build": {
@@ -59,17 +11,6 @@
     }
   },
   "libraries": {
-    "Microsoft.NETFramework.ReferenceAssemblies/1.0.0": {
-      "sha512": "7D2TMufjGiowmt0E941kVoTIS+GTNzaPopuzM1/1LSaJAdJdBrVP0SkZW7AgDd0a2U1DjsIeaKG1wxGVBNLDMw==",
-      "type": "package",
-      "path": "microsoft.netframework.referenceassemblies/1.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
-        "microsoft.netframework.referenceassemblies.nuspec"
-      ]
-    },
     "Microsoft.NETFramework.ReferenceAssemblies.net47/1.0.0": {
       "sha512": "unYFhU7lcWn4pkw+rqE9qdlGZ8jK5/RG0DXJjPnDeLB8NBdBOk191XrLu2eAU/CVMlCb80jAm+95jhw5fS7hpA==",
       "type": "package",
@@ -399,14 +340,13 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETFramework,Version=v4.7": [
-      "Microsoft.NETFramework.ReferenceAssemblies >= 1.0.0",
+    ".NETFramework,Version=v4.7.2": [
       "Microsoft.NETFramework.ReferenceAssemblies.net47 >= 1.0.0"
     ]
   },
   "packageFolders": {
     "C:\\Users\\Administrator.SKY-20190312LLS\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet": {}
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
@@ -417,9 +357,8 @@
       "packagesPath": "C:\\Users\\Administrator.SKY-20190312LLS\\.nuget\\packages\\",
       "outputPath": "H:\\MyGameProject\\Cacodemon\\GameProject\\Cacodemon\\.mono\\temp\\obj\\",
       "projectStyle": "PackageReference",
-      "skipContentFileWrite": true,
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet"
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
         "C:\\Users\\Administrator.SKY-20190312LLS\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -427,42 +366,32 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net47"
+        "net472"
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net47": {
+        "net472": {
           "projectReferences": {}
         }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
       }
     },
     "frameworks": {
-      "net47": {
+      "net472": {
         "dependencies": {
-          "Microsoft.NETFramework.ReferenceAssemblies": {
-            "suppressParent": "All",
-            "target": "Package",
-            "version": "[1.0.0, )"
-          },
           "Microsoft.NETFramework.ReferenceAssemblies.net47": {
             "target": "Package",
             "version": "[1.0.0, )"
           }
-        }
-      }
-    },
-    "runtimes": {
-      "win": {
-        "#import": []
-      },
-      "win-x64": {
-        "#import": []
-      },
-      "win-x86": {
-        "#import": []
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -3,7 +3,7 @@
     /// <summary>
     /// 状态类型枚举
     /// </summary>
-    public enum Sta
+    public enum State
     {
         /// <summary>
         /// 空闲

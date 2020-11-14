@@ -39,7 +39,7 @@ namespace XiaoLi.Base
 
         /// 当前状态
         [Export]
-        public Sta State { get; set; } = Sta.Idle;
+        public State State { get; set; } = State.Idle;
 
         /// 当前移动速率
         public Vector2 Velocity { get; set; } = Vector2.Zero;
@@ -71,7 +71,7 @@ namespace XiaoLi.Base
         /// </summary>
         /// <param name="oldState">原来的状态</param>
         /// <returns>改变后的状态</returns>
-        protected abstract Sta ListeningState(Sta oldState);
+        protected abstract State ListeningState(State oldState);
 
         /// <summary>
         /// 改变状态,并触发动画更新,调用事件
@@ -79,7 +79,7 @@ namespace XiaoLi.Base
         /// </summary>
         /// <param name="oldState">原来的状态</param>
         /// <param name="newState">新的状态</param>
-        public abstract void ChangeState(Sta oldState, Sta newState);
+        public abstract void ChangeState(State oldState, State newState);
 
         /// <summary>
         /// 角色的操作,状态的改变
@@ -113,11 +113,11 @@ namespace XiaoLi.Base
         private void Update(float delta)
         {
             //监视状态
-            Sta oldSta = State;
-            Sta newSta = ListeningState(oldSta);
-            if(oldSta != newSta)
+            State oldState = State;
+            State newState = ListeningState(oldState);
+            if(oldState != newState)
             {
-                ChangeState(oldSta,newSta);
+                ChangeState(oldState,newState);
             }
             //用户操作
             Vector2 dir = Operation(delta);

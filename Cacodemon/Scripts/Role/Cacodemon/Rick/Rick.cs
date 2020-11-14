@@ -60,7 +60,7 @@ public abstract class Rick : RoleBase
 	/// </summary>
 	/// <param name="oldState">原来的状态</param>
 	/// <returns>新的状态</returns>
-	protected abstract Sta RickListeningState(Sta oldState);
+	protected abstract State RickListeningState(State oldState);
 
 	/// <summary>
 	/// 根据状态播放动画
@@ -68,7 +68,7 @@ public abstract class Rick : RoleBase
 	/// <param name="oldState">原来的状态</param>
 	/// <param name="newState">新的状态</param>
 	/// <returns>返回动画名称的字符串,如果返回为null,则不播放任何动画</returns>
-	protected abstract string RickPlayAnimation(Sta oldState, Sta newState);
+	protected abstract string RickPlayAnimation(State oldState, State newState);
 
 	
 	//*************************************************
@@ -91,7 +91,7 @@ public abstract class Rick : RoleBase
 	}
 
 	
-	protected override Sta ListeningState(Sta oldState)
+	protected override State ListeningState(State oldState)
 	{
 		//刷新键位状态
 		UpdateKeyState();
@@ -99,7 +99,7 @@ public abstract class Rick : RoleBase
 		return RickListeningState(oldState);
 	}
 
-	public override void ChangeState(Sta oldState, Sta newState)
+	public override void ChangeState(State oldState, State newState)
 	{
 		State = newState;
 		//设置动画状态为未播放完成
@@ -170,7 +170,7 @@ public abstract class Rick : RoleBase
 	/// <param name="flag">bool值</param>
 	protected void SetCanClimb(RigidBody2D body, bool flag)
 	{
-		if (flag && State == Sta.JumpFall)
+		if (flag && State == State.JumpFall) //只有下落阶段才能出发爬墙
 		{
 			//只有在body含有碰撞形状时才能执行下面的代码
 			CollisionShape2D shape2D = body.GetChildOrNull<CollisionShape2D>(0);
@@ -189,6 +189,7 @@ public abstract class Rick : RoleBase
 		else
 		{
 			CanClimb = false;
+			//开启物理下落
 			EnableGravity = true;
 		}
 	}

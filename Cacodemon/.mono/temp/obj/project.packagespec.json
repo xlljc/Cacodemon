@@ -1,0 +1,41 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "H:\\MyGameProject\\Cacodemon\\GameProject\\Cacodemon\\Cacodemon.csproj",
+    "projectName": "Cacodemon",
+    "projectPath": "H:\\MyGameProject\\Cacodemon\\GameProject\\Cacodemon\\Cacodemon.csproj",
+    "outputPath": "H:\\MyGameProject\\Cacodemon\\GameProject\\Cacodemon\\.mono\\temp\\obj\\",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "C:\\Microsoft\\Xamarin\\NuGet"
+    ],
+    "originalTargetFrameworks": [
+      "net472"
+    ],
+    "sources": {
+      "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+      "https://api.nuget.org/v3/index.json": {}
+    },
+    "frameworks": {
+      "net472": {
+        "projectReferences": {}
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "net472": {
+      "dependencies": {
+        "Microsoft.NETFramework.ReferenceAssemblies.net47": {
+          "target": "Package",
+          "version": "[1.0.0, )"
+        }
+      },
+      "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+    }
+  }
+}
